@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XO", "XO", "{86903DFB-8478-
 	ProjectSection(SolutionItems) = preProject
 		XO\Game.js = XO\Game.js
 		XO\Index.html = XO\Index.html
+		XO\Main.css = XO\Main.css
+		XO\UI.js = XO\UI.js
 	EndProjectSection
 EndProject
 Global
