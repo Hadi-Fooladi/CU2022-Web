@@ -1,9 +1,21 @@
 const game = new Game();
 const imgList = [];
-for (let i = 0; i < 9; i++) {
-    const img = document.getElementById(`img${i}`);
-    img.onclick = () => Play(i);
-    imgList.push(img);
+const t = document.getElementById("t");
+
+for (let row = 0; row < 3; row++) {
+    const tr = document.createElement("tr");
+    t.appendChild(tr);
+
+    for (let col = 0; col < 3; col++) {
+        const td = document.createElement("td");
+        tr.appendChild(td);
+
+        const num = row * 3 + col;
+        const img = document.createElement("img");
+        img.onclick = () => Play(num);
+        imgList.push(img);
+        td.appendChild(img);
+    }
 }
 
 function Play(ndx) {
