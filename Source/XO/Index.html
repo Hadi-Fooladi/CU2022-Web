@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>XO</title>
+    <script src="Game.js"></script>
+    <style>
+        img
+        {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><img id="img0" /></td>
+            <td><img id="img1" /></td>
+            <td><img id="img2" /></td>
+        </tr>
+        <tr>
+            <td><img id="img3" /></td>
+            <td><img id="img4" /></td>
+            <td><img id="img5" /></td>
+        </tr>
+        <tr>
+            <td><img id="img6" /></td>
+            <td><img id="img7" /></td>
+            <td><img id="img8" /></td>
+        </tr>
+    </table>
+
+    <script>
+        const game = new Game();
+        const imgList = [];
+        for (let i = 0; i < 9; i++) {
+            const img = document.getElementById(`img${i}`);
+            img.onclick = () => Play(i);
+            imgList.push(img);
+        }
+
+        function Play(ndx) {
+            const result = game.Play(ndx);
+            if (result == Invalid) {
+                alert("Invalid move");
+                return;
+            }
+
+            UpdateUI();
+
+            if (result == Valid) return;
+
+            if (result == Draw) {
+                alert("Draw");
+                return;
+            }
+
+            alert(`${result} wins`);
+        }
+
+        function UpdateUI() {
+            for (let i = 0; i < 9; i++) {
+                let src;
+                switch (game.Get(i)) {
+                    default: src = "B.png"; break;
+                    case X: src = "X.png"; break;
+                    case O: src = "O.png"; break;
+                }
+                imgList[i].src = src;
+            }
+        }
+    </script>
+</body>
+</html>
