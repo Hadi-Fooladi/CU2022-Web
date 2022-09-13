@@ -24,7 +24,7 @@ class Game {
         if (this.IsWinner(O)) return O;
 
         for (let i = 0; i < 9; i++)
-            if (a[i] != B)
+            if (a[i] == B)
                 return Valid;
 
         return Draw;
