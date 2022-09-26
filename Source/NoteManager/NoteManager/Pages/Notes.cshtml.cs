@@ -9,10 +9,10 @@ namespace NoteManager.Pages
     {
         public List<int> Numbers { get; set; }
 
-        public void OnGet()
+        public void OnGet(int number)
         {
             Numbers = new List<int>();
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i <= number; i++)
                 Numbers.Add(i);
         }
     }
