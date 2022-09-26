@@ -4,3 +4,10 @@
 }
 
 <h1>These are my notes!!!</h1>
+
+<ul>
+    @foreach(var number in Model.Numbers)
+    {
+        <li>@number * @number = @(number * number)</li>
+    }
+</ul>
