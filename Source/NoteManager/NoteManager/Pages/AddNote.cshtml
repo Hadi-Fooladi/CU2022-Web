@@ -1,15 +1,13 @@
-﻿@page "{text}"
+﻿@page "/add/{text}"
 @model NoteManager.Pages.AddNoteModel
 @{
 }
-
-<p>You added <b>@Model.Text</b></p>
 
 <h1>All My Notes</h1>
 <h4>
     <ul>
 
-@foreach(var text in Notes.Texts)
+@foreach(var text in Model.Notes)
         {
             <li>@text</li>
         }

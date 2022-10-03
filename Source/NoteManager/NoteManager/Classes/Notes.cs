@@ -1,16 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
 
 namespace NoteManager
 {
-	public static class Notes
+	public class Notes
 	{
-		private static List<string> s_texts = new List<string>();
+		private string _filePath;
 
-		public static void Add(string text)
+		public Notes(string filePath)
 		{
-			s_texts.Add(text);
+			_filePath = filePath;
 		}
 
-		public static IReadOnlyList<string> Texts => s_texts;
+		public void Add(string text)
+		{
+			File.AppendAllText(_filePath, text + Environment.NewLine);
+		}
+
+		public IReadOnlyList<string> Texts => File.ReadAllLines(_filePath);
 	}
 }

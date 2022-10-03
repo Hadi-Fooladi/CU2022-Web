@@ -1,16 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using System.Collections.Generic;
+
 
 namespace NoteManager.Pages
 {
     public class AddNoteModel : PageModel
     {
-        public string Text { get; set; }
+        public IReadOnlyList<string> Notes { get; set; }
 
-        public void OnGet(string text)
+        public void OnGet(string text, [FromServices] IWebHostEnvironment env)
         {
-            Text = text;
-            Notes.Add(text);
+            var notes = new Notes(Path.Combine(env.ContentRootPath, "Notes.txt"));
+
+            notes.Add(text);
+            Notes = notes.Texts;
         }
     }
 }
