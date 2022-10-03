@@ -11,7 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XO", "XO", "{86903DFB-8478-
 		XO\UI.js = XO\UI.js
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Tutorial", "CSharp_Tutorial\CSharp_Tutorial.csproj", "{DAC0C59F-73DB-4EB6-9095-C0199F2A9DDF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAC0C59F-73DB-4EB6-9095-C0199F2A9DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC0C59F-73DB-4EB6-9095-C0199F2A9DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC0C59F-73DB-4EB6-9095-C0199F2A9DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC0C59F-73DB-4EB6-9095-C0199F2A9DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
