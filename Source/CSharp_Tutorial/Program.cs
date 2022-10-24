@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CSharp_Tutorial
 {
@@ -22,7 +23,21 @@ namespace CSharp_Tutorial
 			//foo(v1);
 			//Console.WriteLine(v1.Number); // 1 or 56
 
-			DisplayFields(typeof(Person));
+			//DisplayFields(typeof(Person));
+
+			int[] numbers;
+			List<int> list = new List<int>();
+
+			numbers = new int[100];
+
+			for (int i = 0; i < 100; i++)
+			{
+				list.Add(i * 2);
+				numbers[i] = i;
+			}
+
+			foreach (var number in list)
+				Console.WriteLine(number);
 		}
 
 		public static void foo(Value value)
