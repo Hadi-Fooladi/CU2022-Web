@@ -1,15 +1,26 @@
 ﻿@page
 @model NoteManager.Pages.NotesModel
-@{
-}
 
 <h1>These are my notes!!!</h1>
 
 <a asp-page="AddNote">Add new Note</a>
 
-<ul>
-    @foreach(var note in Model.Notes)
-    {
-        <li>@note.Text</li>
-    }
-</ul>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="table-info">
+            <td>Text</td>
+            <td>Insert Date</td>
+            <td>update Date</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var note in Model.Notes)
+        {
+            <tr>
+                <td>@note.Text</td>
+                <td>@note.InsertDate.ToString("MM/dd/yyyy (HH:mm)")</td>
+                <td>@note.UpdateDate.ToString("MM/dd/yyyy (HH:mm)")</td>
+            </tr>
+        }
+    </tbody>
+</table>
