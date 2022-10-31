@@ -7,11 +7,11 @@ namespace NoteManager
 
 	public static class Global
 	{
-		public static Database DB { get; private set; }
+		public static Database Database { get; private set; }
 
 		public static void Init(IWebHostEnvironment env)
 		{
-			DB = new Database(Path.Combine(env.ContentRootPath, "DB.db3"));
+			Database = new Database(Path.Combine(env.ContentRootPath, "DB.db3"));
 		}
 	}
 }

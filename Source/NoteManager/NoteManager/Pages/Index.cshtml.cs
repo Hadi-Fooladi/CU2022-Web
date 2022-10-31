@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace NoteManager.Pages
 {
@@ -17,9 +13,9 @@ namespace NoteManager.Pages
 			_logger = logger;
 		}
 
-		public void OnGet()
+		public ActionResult OnGet()
 		{
-
+			return RedirectToPage("Notes");
 		}
 	}
 }

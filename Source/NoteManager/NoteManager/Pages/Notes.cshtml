@@ -1,4 +1,4 @@
-﻿@page "{number}"
+﻿@page
 @model NoteManager.Pages.NotesModel
 @{
 }
@@ -6,8 +6,8 @@
 <h1>These are my notes!!!</h1>
 
 <ul>
-    @foreach(var number in Model.Numbers)
+    @foreach(var note in Model.Notes)
     {
-        <li>@number * @number = @(number * number)</li>
+        <li>@note.Text</li>
     }
 </ul>

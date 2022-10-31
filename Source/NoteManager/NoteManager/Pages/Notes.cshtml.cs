@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace NoteManager.Pages
 {
+    using DB;
+
     public class NotesModel : PageModel
     {
-        public List<int> Numbers { get; set; }
+        public IEnumerable<Note> Notes { get; set; }
 
-        public void OnGet(int number)
+        public void OnGet()
         {
-            Numbers = new List<int>();
-            for (int i = 1; i <= number; i++)
-                Numbers.Add(i);
+            Notes = Global.Database.Notes;
         }
     }
 }
