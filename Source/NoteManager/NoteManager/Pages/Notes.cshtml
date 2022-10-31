@@ -18,9 +18,11 @@
         {
             <tr>
                 <td>@note.Text</td>
-                <td>@note.InsertDate.ToString("MM/dd/yyyy (HH:mm)")</td>
-                <td>@note.UpdateDate.ToString("MM/dd/yyyy (HH:mm)")</td>
+                <td>@format(note.InsertDate)</td>
+                <td>@format(note.UpdateDate)</td>
             </tr>
+
+            string format(DateTime dt) => dt.ToString("MM/dd/yyyy (hh:mm tt)");
         }
     </tbody>
 </table>
