@@ -1,15 +1,10 @@
-﻿@page "/add/{text}"
+﻿@page
 @model NoteManager.Pages.AddNoteModel
-@{
-}
 
-<h1>All My Notes</h1>
-<h4>
-    <ul>
-
-@foreach(var text in Model.Notes)
-        {
-            <li>@text</li>
-        }
-    </ul>
-</h4>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Text"></label>
+        <input class="form-control" asp-for="Text" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
