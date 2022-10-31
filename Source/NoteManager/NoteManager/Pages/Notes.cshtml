@@ -8,7 +8,22 @@
 <table class="table table-hover table-striped">
     <thead>
         <tr class="table-info">
-            <td>Text</td>
+            <td>Text
+                <span style="font-size:20pt">
+                @if(Model.Sort == "asc")
+                {
+                    <a asp-page="Notes" asp-route-Sort="des">↓</a>
+                }
+                else if (Model.Sort == "des")
+                {
+                    <a asp-page="Notes">x</a>
+                }
+                else
+                {
+                    <a asp-page="Notes" asp-route-Sort="asc">↑</a>
+                }
+                </span>
+            </td>
             <td>Insert Date</td>
             <td>update Date</td>
         </tr>
