@@ -5,9 +5,9 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteManager", "NoteManager\NoteManager.csproj", "{B32C06B7-E7B2-4137-AED6-B6A6535243CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{B3C03541-22AA-460D-918B-B27AB13DB2EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Database.csproj", "{B3C03541-22AA-460D-918B-B27AB13DB2EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database.Test", "Database.Test\Database.Test.csproj", "{7A51980F-76EC-4880-9FC1-F18E9622B525}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database.Test", "Database.Test\Database.Test.csproj", "{7A51980F-76EC-4880-9FC1-F18E9622B525}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

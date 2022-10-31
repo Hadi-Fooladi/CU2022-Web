@@ -8,6 +8,7 @@
 <table class="table table-hover table-striped">
     <thead>
         <tr class="table-info">
+            <td>Actions</td>
             <td>Text
                 <span style="font-size:20pt">
                 @if(Model.Sort == "asc")
@@ -32,6 +33,7 @@
         @foreach(var note in Model.Notes)
         {
             <tr>
+                <td><a asp-page="EditNote" asp-route-Id="@note.Id" class="btn btn-primary" role="button">Edit</a></td>
                 <td>@note.Text</td>
                 <td>@format(note.InsertDate)</td>
                 <td>@format(note.UpdateDate)</td>

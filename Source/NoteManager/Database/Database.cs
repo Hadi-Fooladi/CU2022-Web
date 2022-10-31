@@ -20,6 +20,14 @@ namespace NoteManager.DB
 			_con.Insert(note);
 		}
 
+		public void Edit(Note note)
+		{
+			_con.Update(note);
+		}
+
+		public Note FindById(int id) => _con.Table<Note>()
+			.FirstOrDefault(n => n.Id == id);
+
 		public IEnumerable<Note> Notes => _con.Table<Note>();
 		public IEnumerable<Note> SortedNotes => _con.Table<Note>().OrderBy(n => n.Text);
 	}
