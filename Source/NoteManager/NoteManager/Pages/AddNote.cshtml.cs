@@ -11,12 +11,12 @@ namespace NoteManager.Pages
     {
         public IReadOnlyList<string> Notes { get; set; }
 
-        public void OnGet(string text, [FromServices] IWebHostEnvironment env)
-        {
-            var notes = new Notes(Path.Combine(env.ContentRootPath, "Notes.txt"));
+        //public void OnGet(string text, [FromServices] IWebHostEnvironment env)
+        //{
+        //    var notes = new Notes(Path.Combine(env.ContentRootPath, "Notes.txt"));
 
-            notes.Add(text);
-            Notes = notes.Texts;
-        }
+        //    notes.Add(text);
+        //    Notes = notes.Texts;
+        //}
     }
 }
