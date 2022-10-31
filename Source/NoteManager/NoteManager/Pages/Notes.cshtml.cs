@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +12,18 @@ namespace NoteManager.Pages
     {
         public IEnumerable<Note> Notes { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string Sort { get; set; }
+
         public void OnGet()
         {
-            Notes = Global.Database.Notes;
+            var db = Global.Database;
+            switch(Sort)
+            {
+                case "asc": Notes = db.SortedNotes; break;
+                case "des": Notes = db.SortedNotes.Reverse(); break;
+                default: Notes = db.Notes; break;
+            }
         }
     }
 }
