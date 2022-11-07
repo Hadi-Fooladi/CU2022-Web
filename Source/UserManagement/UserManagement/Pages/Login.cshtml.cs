@@ -22,6 +22,12 @@ namespace UserManagement.Pages
 
         public async Task<IActionResult> OnPost()
         {
+            if (string.IsNullOrEmpty(Username))
+            {
+                ModelState.AddModelError("", "Username is empty!");
+                return Page();
+            }
+
             if (Password == "a")
             {
                 var claims = new List<Claim>
