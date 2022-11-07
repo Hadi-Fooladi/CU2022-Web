@@ -25,6 +25,11 @@ namespace UserManagement
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddRazorPages();
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie(options =>
+				{
+					options.LoginPath = "/login";
+				});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +47,8 @@ namespace UserManagement
 			app.UseStaticFiles();
 
 			app.UseRouting();
+			
+			app.UseAuthentication();
 
 			app.UseAuthorization();
 

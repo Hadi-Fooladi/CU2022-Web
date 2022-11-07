@@ -1,0 +1,22 @@
+﻿@page
+@model UserManagement.Pages.LoginModel
+@{
+}
+
+<h1>Login</h1>
+
+<form method="post">
+    <div class="row">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+    <div class="row">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+    <div class="row">
+        <input type="submit" value="Login" />
+    </div>
+</form>
+
+<div asp-validation-summary="All" class="text-danger"></div>
