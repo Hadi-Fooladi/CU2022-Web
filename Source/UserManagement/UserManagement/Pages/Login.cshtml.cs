@@ -38,6 +38,10 @@ namespace UserManagement.Pages
                     new Claim(ClaimTypes.Name, Username),
                     new Claim(ClaimTypes.NameIdentifier, Username),
 				};
+
+                if (user.IsAdmin)
+                    claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(principal);

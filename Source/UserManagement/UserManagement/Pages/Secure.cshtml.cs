@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace UserManagement.Pages
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class SecureModel : PageModel
     {
         public void OnGet()
