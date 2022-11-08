@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -14,6 +15,7 @@ namespace UserManagement.Pages
         public string Username { get; set; }
 
         [BindProperty]
+		[DataType(DataType.Password)]
         public string Password { get; set; }
 
         public void OnGet()
@@ -22,13 +24,14 @@ namespace UserManagement.Pages
 
         public async Task<IActionResult> OnPost()
         {
-            if (string.IsNullOrEmpty(Username))
+            var user = Global.Database.Find(Username);
+            if (user == null)
             {
-                ModelState.AddModelError("", "Username is empty!");
+                ModelState.AddModelError("", "Username not found!");
                 return Page();
             }
 
-            if (Password == "a")
+            if (Password == user.Password)
             {
                 var claims = new List<Claim>
                 {

@@ -1,9 +1,10 @@
 ﻿@page
-@model UserManagement.Pages.LoginModel
+@model UserManagement.Pages.SignUpModel
 @{
 }
 
-<h1>Login</h1>
+<h1>Sign up</h1>
+
 
 <form method="post">
     <div class="row">
@@ -15,8 +16,7 @@
         <input asp-for="Password" class="form-control" />
     </div>
     <div class="row">
-        <input type="submit" value="Login" />
-        <a asp-page="SignUp" class="btn btn-primary">Sign Up!</a>
+        <input type="submit" value="Sign Up" />
     </div>
 </form>
 
