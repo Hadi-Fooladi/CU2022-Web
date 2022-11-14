@@ -19,14 +19,7 @@ namespace NoteManager.Pages
 
         public IActionResult OnPost()
         {
-            var now = DateTime.Now;
-            Global.Database.Add(new Note
-            {
-                Text = Text,
-                InsertDate = now,
-                UpdateDate = now
-            });
-
+            Global.AddNote(Text);
             return RedirectToPage("Notes");
         }
     }
