@@ -11,13 +11,19 @@ namespace NoteManager.Controllers
 	{
 		[HttpPost]
 		[Route("add")]
-		public bool AddNote([FromBody] string text)
+		public void AddNote([FromBody] string text)
 		{
 			Global.AddNote(text);
-			return true;
 		}
 
 		[Route("list")]
 		public IEnumerable<Note> GetNotes() => Global.Database.Notes;
+
+		[HttpPost]
+		[Route("edit/{id:int}")]
+		public void EditNote(int id, [FromBody] string text)
+		{
+			Global.EditNote(id, text);
+		}
 	}
 }

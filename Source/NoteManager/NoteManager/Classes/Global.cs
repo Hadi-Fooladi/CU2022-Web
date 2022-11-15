@@ -25,5 +25,16 @@ namespace NoteManager
 				UpdateDate = now
 			});
 		}
+
+		public static void EditNote(int id, string text)
+		{
+			var db = Database;
+			var note = db.FindById(id);
+
+			note.Text = text;
+			note.UpdateDate = DateTime.Now;
+
+			db.Edit(note);
+		}
 	}
 }

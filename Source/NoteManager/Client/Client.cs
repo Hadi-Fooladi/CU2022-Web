@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft;
+using System.Collections.Generic;
+
+using Newtonsoft.Json;
 
 namespace NoteManager
 {
 	using DB;
-	using Newtonsoft.Json;
-	using System.Text;
 
 	public class Client
 	{
@@ -24,7 +24,7 @@ namespace NoteManager
 
 		public async Task AddNoteAsync(string text)
 		{
-			var response = await _client.PostAsync("add", new StringContent(JsonConvert.SerializeObject(text), Encoding.UTF8, "application/json"));
+			var response = await _client.PostAsync("add", Deserialize(text));
 			response.EnsureSuccessStatusCode();
 		}
 
@@ -34,5 +34,17 @@ namespace NoteManager
 
 			return JsonConvert.DeserializeObject<Note[]>(response);
 		}
+
+		public async Task EditNoteAsync(int id, string text)
+		{
+			var response = await _client.PostAsync($"edit/{id}", Deserialize(text));
+			response.EnsureSuccessStatusCode();
+		}
+
+		private static StringContent Deserialize(object obj)
+			=> new StringContent(
+				JsonConvert.SerializeObject(obj),
+				Encoding.UTF8,
+				"application/json");
 	}
 }

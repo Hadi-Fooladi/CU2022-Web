@@ -23,13 +23,7 @@ namespace NoteManager.Pages
 
 		public IActionResult OnPost()
 		{
-			var db = Global.Database;
-			var note = db.FindById(Id);
-
-			note.Text = Text;
-			note.UpdateDate = DateTime.Now;
-
-			db.Edit(note);
+			Global.EditNote(Id, Text);
 			return RedirectToPage("Notes");
 		}
 	}

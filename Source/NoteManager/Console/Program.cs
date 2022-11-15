@@ -6,7 +6,7 @@ namespace NoteManager
 	{
 		static void Main(string[] args)
 		{
-			List();
+			Edit(12, "This is edited!!!!!!!");
 		}
 
 		static async void List()
@@ -16,7 +16,7 @@ namespace NoteManager
 			int counter = 1;
 			foreach(var note in  await client.GetNotesAsync())
 			{
-				Console.WriteLine($"Note {counter++}:");
+				Console.WriteLine($"Note {counter++} ({note.Id}):");
 				Console.WriteLine(note.Text);
 			}
 		}
@@ -26,6 +26,13 @@ namespace NoteManager
 			var client = new Client("http://localhost:60667/api/");
 
 			await client.AddNoteAsync("This is from Json Serializer");
+		}
+
+		static async void Edit(int id, string text)
+		{
+			var client = new Client("http://localhost:60667/api/");
+
+			await client.EditNoteAsync(id, text);
 		}
 	}
 }
